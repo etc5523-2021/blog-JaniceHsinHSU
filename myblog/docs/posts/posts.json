@@ -19,18 +19,18 @@
   {
     "path": "posts/welcome/",
     "title": "Welcome to Janice's Blog",
-    "description": "Welcome to our new blog, Janice's Blog. We hope you enjoy \nreading what we have to say!",
+    "description": "Welcome to Janice's Blog. I hope to tell the stories which resonate with you!",
     "author": [
       {
-        "name": "Nora Jones",
-        "url": "https://example.com/norajones"
+        "name": "Janice Hsin Hsu",
+        "url": {}
       }
     ],
     "date": "2021-08-30",
     "categories": [],
     "contents": "\n\n\n\n",
     "preview": {},
-    "last_modified": "2021-08-30T18:02:44+08:00",
-    "input_file": {}
+    "last_modified": "2021-08-30T22:41:11+08:00",
+    "input_file": "welcome.knit.md"
   }
 ]
