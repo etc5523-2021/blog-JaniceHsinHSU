@@ -17,6 +17,8 @@ knitr::opts_chunk$set(echo = FALSE)
 library(coronavirus)
 library(tidyverse)
 library(ggplot2)
+library(gridExtra)
+library(grid)
 ```
 
 
@@ -26,11 +28,18 @@ bah <- subset(coronavirus, country == 'Bahrain')
 ```
 
 
-```{r covid_situation_in_Bahrain}
- bah %>%
-  ggplot(aes(x = date, y = cases))+
-  geom_col(col = "steelblue")
 
+```{r covid_situation_in_Bahrain}
+g1 <- coronavirus %>%
+  ggplot(aes(x = date, y = cases))+
+  geom_col(col = "steelblue")+
+ggtitle("World situation")
+g2 <- bah %>%
+ggplot(aes(x = date, y = cases))+
+  geom_col(col = "steelblue")+
+  ggtitle("Bahrain")
+
+grid.arrange(g1, g2, ncol =2)
 ```
 
 
