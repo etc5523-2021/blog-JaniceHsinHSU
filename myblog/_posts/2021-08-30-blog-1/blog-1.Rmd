@@ -1,9 +1,9 @@
 ---
-title: "Blog-1"
+title: "What Covid-19 is like in Bahrain?"
 description: |
-  A short description of the post.
+  Bahrain, a tiny Middle East country, has one of the highest vaccine coverage rate around the world!
 author:
-  - name: Nora Jones
+  - name: Janice Hsin Hsu
     url: https://example.com/norajones
 date: 08-30-2021
 output:
@@ -14,9 +14,25 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
+library(coronavirus)
+library(tidyverse)
+library(ggplot2)
 ```
 
-Distill is a publication format for scientific and technical writing, native to the web.
+
+```{r}
+data("coronavirus")
+bah <- subset(coronavirus, country == 'Bahrain')
+```
+
+
+```{r covid_situation_in_Bahrain}
+ bah %>%
+  ggplot(aes(x = date, y = cases))+
+  geom_col(col = "steelblue")
+
+```
+
 
 Learn more about using Distill at <https://rstudio.github.io/distill>.
 
