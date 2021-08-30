@@ -2,7 +2,7 @@ name: "myblog"
 title: "Janice's Blog"
 description: |
   Janice's Blog
-output_dir: "_site"
+output_dir: "docs"
 navbar:
   right:
     - text: "Home"
