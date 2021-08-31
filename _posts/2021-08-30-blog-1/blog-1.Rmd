@@ -10,8 +10,6 @@ output:
   distill::distill_article:
     self_contained: false
 ---
-
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 library(coronavirus)
@@ -31,9 +29,9 @@ library(knitr)
 ## My first experiences in Bahrain
 
 
-Bahrain was only a really unfamiliar country name for me until I received a job opportunity as a project manager that had to travel to Bahrain in 2018. It has been three years since I went to Bahrain, but I still remember the heat, the desert and the hospitality that Bahrainis has offered me. I didn't get to spend a lot of time traveling around, especially because it was the fasting season when I went that I didn't even have the chance to really enjoy the food there. However, it was one of the special places that I have ever been.
+Bahrain was a really unfamiliar country name for me until I received a job opportunity as a project manager,that had to travel to Bahrain in 2018. It has been three years since I went to Bahrain, but I still remember the heat, the desert and the hospitality that Bahrainis has offered me. I didn't get to spend a lot of time roaming around the city nor the country, especially because it was the fasting period when I went.Therefore,I didn't even have the chance to really try the local food there. However, it was one of the most special places that I have ever been.
 
-This is the photo of a lamp shop that I took in the market:
+This is the photo of a lamp shop that I took in the market. I was totally fascinated by the variety and the colour of the glass painting lamps. However, I didn't buy any of those as I was worried if they would break in my suitcase, if i ever have the chance to visit Bharain again, I would allow myself to buy one of those beautiful lamps.
 
 
 ```{r}
@@ -41,7 +39,7 @@ knitr::include_graphics("images/b_market.jpg")
 ```
 
 
-Bahrain was one of the hottest country that I have ever been that it hit 43 when I was there. I still remember how hot my glasses frame was, and it was also really sandy!
+Bahrain was one of the hottest country that I have ever been to.It was a scorching 43 degrees celcius when I was there. I still remember how hot my glasses frame was, and it was also really sandy!
 
 (I took this picture from the hotel window)
 
@@ -52,7 +50,9 @@ knitr::include_graphics("images/b_buildings.jpg")
 
 ## How Covid-19 hit Bahrain
 
-Pandemic hit the entire world since 2020, even for the small countries like Bahrain. 
+The pandemic hit the entire world since the late 2019, even for small countries like Bahrain. However, it was to my surprise that up to today, there are over 66.3% of the population in Bahrain has got fully vaccinated when the whole world was still inadequate of vaccine supplies.
+
+[Read the statistics.] <https://www.google.com/search?q=bahrain+vaccination+rate&rlz=1C5CHFA_enTW953TW953&oq=bahrain+vaccination+rate&aqs=chrome..69i57j0i512j0i457i512j0i512l2j69i60l3.4832j0j7&sourceid=chrome&ie=UTF-88>
 
 ```{r}
 data <- read_csv("time_series_covid19_confirmed_global.csv")
@@ -78,7 +78,7 @@ bah <- bah %>%
         daily_increase = cases - case_yesterday )
 ```
 
-This is the total cumulative cases in the world and also in Bahrain for comparison.
+Comparing the total cumulative cases in the world and Bahrain. We can see that the infection rate has become less steep (i.e. slowing down) in Bahrain after July.
 
 ```{r covid_situation_in_Bahrain}
 g1 <- data_tidy %>%
@@ -92,7 +92,7 @@ ggplot(aes(x = dates, y = cases))+
 
 grid.arrange(g1, g2, ncol =2)
 ```
-
+The table below shows the monthly increase in regards of the infection cases. It is consistent to the graph above that the cases has decreased enormously in July, comparing to June when there were about 22,000 cases. The incline rate is likely due to the vaccinations,as Bahrain was one of the first countries to approve Pfizer. This is the reason why Bahrain can achieve such a high vaccination coverage. Up to today, the vaccination approved in Bahrain includes AstraZeneca, Pfizer, Sinopharm and Sputnik [Check out the Ministry of Health of Bahrain] <https://healthalert.gov.bh/en/category/vaccine>. However, if you search "Bahrain vaccination" in google, you will see many news and scientific reports made by Bahrain and other countries, discussing about the ineffectiveness of Sinopharm, and people had to get booster shots as in getting a third shot, using a different vaccination by Pfizer Inc. and BioNTech SE,which most people only have to take 2 shots per person. [News resourse] <https://www.wsj.com/articles/sinopharm-covid-vaccine-seen-as-less-effective-in-bahrain-study-11630150885> 
 
 ```{r table1}
 bah %>%

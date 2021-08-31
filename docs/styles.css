@@ -1,0 +1,11 @@
+body {background-color: #E6EFE9;
+}
+.distill-site-header{
+  --hover-color: white;
+  --bkgd-color: #DBD3AD
+}
+
+.distill-site-nav {
+  color: #DBD3AD;
+  
+}
