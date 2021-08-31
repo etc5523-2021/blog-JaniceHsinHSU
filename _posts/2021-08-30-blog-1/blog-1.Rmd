@@ -22,36 +22,71 @@ library(grid)
 library(leaflet)
 library(lubridate)
 library(kableExtra)
+library(knitr)
 ```
 
 
-```{r}
-data("coronavirus")
-bah <- subset(coronavirus, country == 'Bahrain') %>%
-   mutate(date = ymd(date)) %>% 
-  mutate_at(vars(date), funs(year, month, day))
-```
+
 
 ## My first experiences in Bahrain
 
-" Hey are you okay? Your face looks dreadfully pale."
 
-" Yea nah I am not coping well with the ramadan."
+Bahrain was only a really unfamiliar country name for me until I received a job opportunity as a project manager that had to travel to Bahrain in 2018. It has been three years since I went to Bahrain, but I still remember the heat, the desert and the hospitality that Bahrainis has offered me. I didn't get to spend a lot of time traveling around, especially because it was the fasting season when I went that I didn't even have the chance to really enjoy the food there. However, it was one of the special places that I have ever been.
 
-" Here, take one of these, you are gonna feel much better."
+This is the photo of a lamp shop that I took in the market:
 
-Since then, I cannot forget the flavour and and sweetness of the dates nut that one of the Bahrainian gave me.
 
-Bahrain was only a really unfamiliar country name for me until I received a job opportunity as a project manager in 2018. It has been three years since I went to Bahrain, but I still remember the heat, the desert and the hospitality that Bahrainians has offered me. I didn't get to spend a lot of time traveling around, especially because it was the fasting season when I went that I didn't even have the chance to really enjoy the food there. However, it was one of the special places that I have ever been.
+```{r}
+knitr::include_graphics("images/b_market.jpg")
+```
 
+
+Bahrain was one of the hottest country that I have ever been that it hit 43 when I was there. I still remember how hot my glasses frame was, and it was also really sandy!
+
+(I took this picture from the hotel window)
+
+
+```{r}
+knitr::include_graphics("images/b_buildings.jpg")
+```
+
+## How Covid-19 hit Bahrain
+
+Pandemic hit the entire world since 2020, even for the small countries like Bahrain. 
+
+```{r}
+data <- read_csv("time_series_covid19_confirmed_global.csv")
+```
+
+```{r}
+data_tidy <- data %>%
+  pivot_longer(cols = `1/22/20`:`8/30/21`, names_to = "dates",
+               values_to = "cases") %>%
+  mutate(dates = mdy(dates)) %>% 
+  mutate_at(vars(dates), funs(year, month, day)) 
+
+bah <- data_tidy %>%
+  filter(`Country/Region` == "Bahrain")
+```
+
+```{r}
+data_tidy <- data_tidy %>%
+  mutate(case_yesterday = lag(cases, n = 1),
+        daily_increase = cases - case_yesterday )
+bah <- bah %>%
+  mutate(case_yesterday = lag(cases, n = 1),
+        daily_increase = cases - case_yesterday )
+```
+
+This is the total cumulative cases in the world and also in Bahrain for comparison.
 
 ```{r covid_situation_in_Bahrain}
-g1 <- coronavirus %>%
-  ggplot(aes(x = date, y = cases))+
+g1 <- data_tidy %>%
+  ggplot(aes(x = dates, y = cases))+
   geom_col(col = "steelblue")+
 ggtitle("World situation")
 g2 <- bah %>%
-ggplot(aes(x = date, y = cases))+
+ggplot(aes(x = dates, y = cases))+
   geom_col(col = "steelblue")+
   ggtitle("Bahrain")
 
@@ -59,11 +94,10 @@ grid.arrange(g1, g2, ncol =2)
 ```
 
 
-
 ```{r table1}
 bah %>%
   group_by(year, month) %>%
-  summarise(`total case` = sum(cases)) %>%
+  summarise(`monthly increase` = sum(daily_increase)) %>%
    knitr::kable(
   caption = "Cases in each month") %>%
   kable_styling(c("hover", "striped"))
