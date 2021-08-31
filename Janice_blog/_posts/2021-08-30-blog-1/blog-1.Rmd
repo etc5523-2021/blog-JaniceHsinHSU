@@ -1,0 +1,79 @@
+---
+title: "What Covid-19 is like in Bahrain?"
+description: |
+  Bahrain, a tiny Middle East country, has one of the highest vaccine coverage rate around the world!
+author:
+  - name: Janice Hsin Hsu
+    url: https://example.com/norajones
+date: 08-30-2021
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(coronavirus)
+library(tidyverse)
+library(ggplot2)
+library(gridExtra)
+library(grid)
+library(leaflet)
+library(lubridate)
+library(kableExtra)
+```
+
+
+```{r}
+data("coronavirus")
+bah <- subset(coronavirus, country == 'Bahrain') %>%
+   mutate(date = ymd(date)) %>% 
+  mutate_at(vars(date), funs(year, month, day))
+```
+
+## My first experiences in Bahrain
+
+" Hey are you okay? Your face looks dreadfully pale."
+
+" Yea nah I am not coping well with the ramadan."
+
+" Here, take one of these, you are gonna feel much better."
+
+Since then, I cannot forget the flavour and and sweetness of the dates nut that one of the Bahrainian gave me.
+
+Bahrain was only a really unfamiliar country name for me until I received a job opportunity as a project manager in 2018. It has been three years since I went to Bahrain, but I still remember the heat, the desert and the hospitality that Bahrainians has offered me. I didn't get to spend a lot of time traveling around, especially because it was the fasting season when I went that I didn't even have the chance to really enjoy the food there. However, it was one of the special places that I have ever been.
+
+
+```{r covid_situation_in_Bahrain}
+g1 <- coronavirus %>%
+  ggplot(aes(x = date, y = cases))+
+  geom_col(col = "steelblue")+
+ggtitle("World situation")
+g2 <- bah %>%
+ggplot(aes(x = date, y = cases))+
+  geom_col(col = "steelblue")+
+  ggtitle("Bahrain")
+
+grid.arrange(g1, g2, ncol =2)
+```
+
+
+
+```{r table1}
+bah %>%
+  group_by(year, month) %>%
+  summarise(`total case` = sum(cases)) %>%
+   knitr::kable(
+  caption = "Cases in each month") %>%
+  kable_styling(c("hover", "striped"))
+```
+
+
+
+
+
+
+Learn more about using Distill at <https://rstudio.github.io/distill>.
+
+
