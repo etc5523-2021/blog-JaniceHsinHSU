@@ -1,0 +1,36 @@
+[
+  {
+    "path": "posts/2021-08-30-blog-1/",
+    "title": "What Covid-19 is like in Bahrain?",
+    "description": "Bahrain, a tiny Middle East country, has one of the highest vaccine coverage rate around the world!",
+    "author": [
+      {
+        "name": "Janice Hsin Hsu",
+        "url": "https://example.com/norajones"
+      }
+    ],
+    "date": "2021-08-30",
+    "categories": [],
+    "contents": "\n\n\n\n\n\n\nLearn more about using Distill at https://rstudio.github.io/distill.\n\n\n\n",
+    "preview": "posts/2021-08-30-blog-1/blog-1_files/figure-html5/covid_situation_in_Bahrain-1.png",
+    "last_modified": "2021-08-30T23:41:17+08:00",
+    "input_file": "blog-1.knit.md"
+  },
+  {
+    "path": "posts/welcome/",
+    "title": "Welcome to Janice's Blog",
+    "description": "Welcome to Janice's Blog. I hope to tell the stories which resonate with you!",
+    "author": [
+      {
+        "name": "Janice Hsin Hsu",
+        "url": {}
+      }
+    ],
+    "date": "2021-08-30",
+    "categories": [],
+    "contents": "\n\n\n\n",
+    "preview": {},
+    "last_modified": "2021-08-30T22:41:12+08:00",
+    "input_file": {}
+  }
+]
