@@ -21,6 +21,7 @@ library(leaflet)
 library(lubridate)
 library(kableExtra)
 library(knitr)
+library(plotly)
 ```
 
 
@@ -90,7 +91,9 @@ ggplot(aes(x = dates, y = cases))+
   geom_col(col = "steelblue")+
   ggtitle("Bahrain")
 
-grid.arrange(g1, g2, ncol =2)
+p1<- ggplotly(g1)
+p2 <- ggplotly(g2)
+subplot(p1, p2)
 ```
 The table below shows the monthly increase in regards of the infection cases. It is consistent to the graph above that the cases has decreased enormously in July, comparing to June when there were about 22,000 cases. The incline rate is likely due to the vaccinations,as Bahrain was one of the first countries to approve Pfizer. This is the reason why Bahrain can achieve such a high vaccination coverage. Up to today, the vaccination approved in Bahrain includes AstraZeneca, Pfizer, Sinopharm and Sputnik [Check out the Ministry of Health of Bahrain] <https://healthalert.gov.bh/en/category/vaccine>. However, if you search "Bahrain vaccination" in google, you will see many news and scientific reports made by Bahrain and other countries, discussing about the ineffectiveness of Sinopharm, and people had to get booster shots as in getting a third shot, using a different vaccination by Pfizer Inc. and BioNTech SE,which most people only have to take 2 shots per person. [News resourse] <https://www.wsj.com/articles/sinopharm-covid-vaccine-seen-as-less-effective-in-bahrain-study-11630150885> 
 
