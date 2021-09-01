@@ -85,11 +85,11 @@ Comparing the total cumulative cases in the world and Bahrain. We can see that t
 ```{r covid_situation_in_Bahrain}
 g1 <- data_tidy %>%
   ggplot(aes(x = dates, y = cases))+
-  geom_col(col = "steelblue")+
+  geom_col(col = "#C2714F")+
 ggtitle("World situation")
 g2 <- bah %>%
 ggplot(aes(x = dates, y = cases))+
-  geom_col(col = "steelblue")+
+  geom_col(col = "#C2714F")+
   ggtitle("Bahrain")
 
 grid.arrange(g1, g2, ncol =2)
@@ -111,7 +111,7 @@ The table and the graph below shows the the amount of case increase in regards o
 ```{r}
 bah %>%
 ggplot(aes(x = dates, y = daily_increase))+
-  geom_col(col = "steelblue")+
+  geom_col(col = "#C2714F")+
   ggtitle("cases in Bahrain")
 ```
 
