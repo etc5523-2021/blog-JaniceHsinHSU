@@ -53,10 +53,10 @@ knitr::include_graphics("images/b_buildings.jpg")
 
 The pandemic hit the entire world since the late 2019, even for small countries like Bahrain. However, it was to my surprise that up to today, there are over 66.3% of the population in Bahrain has got fully vaccinated when the whole world was still inadequate of vaccine supplies.
 
-[Read the statistics.] <https://www.google.com/search?q=bahrain+vaccination+rate&rlz=1C5CHFA_enTW953TW953&oq=bahrain+vaccination+rate&aqs=chrome..69i57j0i512j0i457i512j0i512l2j69i60l3.4832j0j7&sourceid=chrome&ie=UTF-88>
+[Read the statistics.](https://www.google.com/search?q=bahrain+vaccination+rate&rlz=1C5CHFA_enTW953TW953&oq=bahrain+vaccination+rate&aqs=chrome..69i57j0i512j0i457i512j0i512l2j69i60l3.4832j0j7&sourceid=chrome&ie=UTF-88)
 
 
-Note: the data is retrieved from <https://github.com/CSSEGISandData/COVID-19> which is collected by Johns Hopkins University.
+Note: the data is retrieved from [COVID-19 Data Repository by the Center for Systems Science and Engineering (CSSE) at Johns Hopkins University](https://github.com/CSSEGISandData/COVID-19) which is collected by Johns Hopkins University.
 
 
 ```{r}
@@ -108,7 +108,7 @@ bah %>%
 
 
 
-The table and the graph below shows the the amount of case increase in regards of the infection cases. It is also consistent to the graph above that the cases has decreased enormously in July, comparing to June when there were about 25,000 cases. The incline rate is likely due to the vaccinations,as Bahrain was one of the first countries to approve Pfizer. This is the reason why Bahrain can achieve such a high vaccination coverage. Up to today, the vaccination approved in Bahrain includes AstraZeneca, Pfizer, Sinopharm and Sputnik [Check out the Ministry of Health of Bahrain] <https://healthalert.gov.bh/en/category/vaccine>. However, if you search "Bahrain vaccination" in google, you will see many news and scientific reports made by Bahrain and other countries, discussing about the ineffectiveness of Sinopharm, and people had to get booster shots as in getting a third shot, using a different vaccination by Pfizer Inc. and BioNTech SE,which most people only have to take 2 shots per person. [News resourse] <https://www.wsj.com/articles/sinopharm-covid-vaccine-seen-as-less-effective-in-bahrain-study-11630150885> 
+The table and the graph below shows the the amount of case increase in regards of the infection cases. It is also consistent to the graph above that the cases has decreased enormously in July, comparing to June when there were about 25,000 cases. The incline rate is likely due to the vaccinations,as Bahrain was one of the first countries to approve Pfizer. This is the reason why Bahrain can achieve such a high vaccination coverage. Up to today, the vaccination approved in Bahrain includes AstraZeneca, Pfizer, Sinopharm and Sputnik [Check out the Ministry of Health of Bahrain](https://healthalert.gov.bh/en/category/vaccine). However, if you search "Bahrain vaccination" in google, you will see many news and scientific reports made by Bahrain and other countries, discussing about the ineffectiveness of Sinopharm, and people had to get booster shots as in getting a third shot, using a different vaccination by Pfizer Inc. and BioNTech SE,which most people only have to take 2 shots per person. [News resourse](https://www.wsj.com/articles/sinopharm-covid-vaccine-seen-as-less-effective-in-bahrain-study-11630150885) 
 
 
 ```{r}
