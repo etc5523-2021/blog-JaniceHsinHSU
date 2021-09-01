@@ -5,7 +5,7 @@ description: |
 author:
   - name: Janice Hsin Hsu
     url: https://example.com/norajones
-date: 08-30-2021
+date: 08-31-2021
 output:
   distill::distill_article:
     self_contained: false
@@ -55,13 +55,15 @@ The pandemic hit the entire world since the late 2019, even for small countries 
 
 [Read the statistics.] <https://www.google.com/search?q=bahrain+vaccination+rate&rlz=1C5CHFA_enTW953TW953&oq=bahrain+vaccination+rate&aqs=chrome..69i57j0i512j0i457i512j0i512l2j69i60l3.4832j0j7&sourceid=chrome&ie=UTF-88>
 
+
+Note: the data is retrieved from <https://github.com/CSSEGISandData/COVID-19> which is collected by Johns Hopkins University.
 ```{r}
 data <- read_csv("time_series_covid19_confirmed_global.csv")
 ```
 
 ```{r}
 data_tidy <- data %>%
-  pivot_longer(cols = `1/22/20`:`8/30/21`, names_to = "dates",
+  pivot_longer(cols = `1/22/20`:`8/31/21`, names_to = "dates",
                values_to = "cases") %>%
   mutate(dates = mdy(dates)) %>% 
   mutate_at(vars(dates), funs(year, month, day)) 
@@ -91,11 +93,28 @@ ggplot(aes(x = dates, y = cases))+
   geom_col(col = "steelblue")+
   ggtitle("Bahrain")
 
-p1<- ggplotly(g1)
-p2 <- ggplotly(g2)
-subplot(p1, p2)
+grid.arrange(g1, g2, ncol =2)
 ```
-The table below shows the monthly increase in regards of the infection cases. It is consistent to the graph above that the cases has decreased enormously in July, comparing to June when there were about 22,000 cases. The incline rate is likely due to the vaccinations,as Bahrain was one of the first countries to approve Pfizer. This is the reason why Bahrain can achieve such a high vaccination coverage. Up to today, the vaccination approved in Bahrain includes AstraZeneca, Pfizer, Sinopharm and Sputnik [Check out the Ministry of Health of Bahrain] <https://healthalert.gov.bh/en/category/vaccine>. However, if you search "Bahrain vaccination" in google, you will see many news and scientific reports made by Bahrain and other countries, discussing about the ineffectiveness of Sinopharm, and people had to get booster shots as in getting a third shot, using a different vaccination by Pfizer Inc. and BioNTech SE,which most people only have to take 2 shots per person. [News resourse] <https://www.wsj.com/articles/sinopharm-covid-vaccine-seen-as-less-effective-in-bahrain-study-11630150885> 
+```{r}
+bah %>%
+  group_by(year, month) %>%
+  summarise(`total cases` = sum(cases)) %>%
+   knitr::kable(
+  caption = "Total cases in Bahrain") %>%
+  kable_styling(c("hover", "striped"))
+```
+
+
+
+The table and the graph below shows the the amount of case increase in regards of the infection cases. It is also consistent to the graph above that the cases has decreased enormously in July, comparing to June when there were about 25,000 cases. The incline rate is likely due to the vaccinations,as Bahrain was one of the first countries to approve Pfizer. This is the reason why Bahrain can achieve such a high vaccination coverage. Up to today, the vaccination approved in Bahrain includes AstraZeneca, Pfizer, Sinopharm and Sputnik [Check out the Ministry of Health of Bahrain] <https://healthalert.gov.bh/en/category/vaccine>. However, if you search "Bahrain vaccination" in google, you will see many news and scientific reports made by Bahrain and other countries, discussing about the ineffectiveness of Sinopharm, and people had to get booster shots as in getting a third shot, using a different vaccination by Pfizer Inc. and BioNTech SE,which most people only have to take 2 shots per person. [News resourse] <https://www.wsj.com/articles/sinopharm-covid-vaccine-seen-as-less-effective-in-bahrain-study-11630150885> 
+
+
+```{r}
+bah %>%
+ggplot(aes(x = dates, y = daily_increase))+
+  geom_col(col = "steelblue")+
+  ggtitle("cases in Bahrain")
+```
 
 ```{r table1}
 bah %>%
@@ -108,9 +127,10 @@ bah %>%
 
 
 
+From the table and the plot above, it is obvious to see that cases in Bahrain has decreased a lot after July, and it has lasted for more than a month. To conclude to situation, we can say that the Covid-19 situation is under control in Bahrain.
 
 
 
-Learn more about using Distill at <https://rstudio.github.io/distill>.
+
 
 

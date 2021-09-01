@@ -1,11 +1,20 @@
-body {background-color: #E6EFE9;
-}
-.distill-site-header{
-  --hover-color: white;
-  --bkgd-color: #DBD3AD
+body {background-color: #E3E2DF;
 }
 
-.distill-site-nav {
-  color: #DBD3AD;
-  
+ .distill-site-nav  {
+  color: #FFFFFF;
+  background-color: #5D001E;
+  font-family:"Monospace", cursive, Sans-Serif ;
+   }
+
+.distill-site-header {
+  --title-size:       20px;                      
+  --text-color:       #FFFFFF;                   
+  --text-size:        20px;                      
+  --hover-color:      #383838;                   
+  --bkgd-color:       #D36060;          
+}
+
+h1 {
+  font-family: "Monospace", cursive, Sans-Serif;
 }
