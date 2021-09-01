@@ -19,6 +19,7 @@ library(grid)
 library(lubridate)
 library(kableExtra)
 library(knitr)
+library(DT)
 ```
 
 
@@ -52,8 +53,11 @@ The pandemic hit the entire world since the late 2019, even for small countries 
 
 [Read the statistics.](https://www.google.com/search?q=bahrain+vaccination+rate&rlz=1C5CHFA_enTW953TW953&oq=bahrain+vaccination+rate&aqs=chrome..69i57j0i512j0i457i512j0i512l2j69i60l3.4832j0j7&sourceid=chrome&ie=UTF-88)
 
+## Data decription
 
-Note: the data is retrieved from [COVID-19 Data Repository by the Center for Systems Science and Engineering (CSSE) at Johns Hopkins University](https://github.com/CSSEGISandData/COVID-19) which is collected by Johns Hopkins University.
+The data is retrieved from [COVID-19 Data Repository by the Center for Systems Science and Engineering (CSSE) at Johns Hopkins University](https://github.com/CSSEGISandData/COVID-19) which is collected by Johns Hopkins University.
+
+The dataset in this post contains the number of confirmed cases of coronavirus from 22nd of January in 2020 to 31st of August in 2021. I transferred the data into a long format, so that the dates can be shown in a single column. The dataset also includes variables such as Province, Country/Region and latitude as in lat, longitude as in long.
 
 
 ```{r}
@@ -80,7 +84,11 @@ bah <- bah %>%
         daily_increase = cases - case_yesterday )
 ```
 
-Comparing the total cumulative cases in the world and Bahrain. We can see that the infection rate has become less steep (i.e. slowing down) in Bahrain after July.
+## Covid-19 Findings and Analysis
+
+### Comparing to the world
+
+Comparing the total cumulative cases in the world and Bahrain. We can see that the infection rate has become less steep (i.e. slowing down) in Bahrain after July. This means the increase rate is declining (i.e. less people have caught Covid-19 ever since July!)
 
 ```{r covid_situation_in_Bahrain}
 g1 <- data_tidy %>%
@@ -94,18 +102,21 @@ ggplot(aes(x = dates, y = cases))+
 
 grid.arrange(g1, g2, ncol =2)
 ```
+
+
+So that we look deeply into the cumulative data in regards to Bahrain through the datatable below.
+
 ```{r}
-bah %>%
-  group_by(year, month) %>%
-  summarise(`total cases` = sum(cases)) %>%
-   knitr::kable(
-  caption = "Total cases in Bahrain") %>%
-  kable_styling(c("hover", "striped"))
+bah_tidy <- bah %>%
+  select(`Country/Region`, dates, cases)
+datatable(bah_tidy)
 ```
 
 
 
-The table and the graph below shows the the amount of case increase in regards of the infection cases. It is also consistent to the graph above that the cases has decreased enormously in July, comparing to June when there were about 25,000 cases. The incline rate is likely due to the vaccinations, as Bahrain was one of the first countries to approve Pfizer. This is the reason why Bahrain can achieve such a high vaccination coverage. Up to today, the vaccination approved in Bahrain includes AstraZeneca, Pfizer, Sinopharm and Sputnik [Check out the Ministry of Health of Bahrain](https://healthalert.gov.bh/en/category/vaccine). However, if you search "Bahrain vaccination" in google, you will see many news and scientific reports made by Bahrain and other countries, discussing about the ineffectiveness of Sinopharm, and people had to get booster shots as in getting a third shot, using a different vaccination by Pfizer Inc. and BioNTech SE, which most people only have to take 2 shots per person (Stephen, 2021). [News resourse](https://www.wsj.com/articles/sinopharm-covid-vaccine-seen-as-less-effective-in-bahrain-study-11630150885) 
+### The Covid-19 situation in Bahrain
+
+The table and the graph below shows the the amount of case increase in regards of the infection cases. It is also consistent to the graph above that the increase of cases has slowed down enormously in July, comparing to June when there were about 25,000 cases. The decline is likely due to the vaccinations, as Bahrain was one of the first countries to approve Pfizer. This is the reason why Bahrain can achieve such a high vaccination coverage. Up to today, the vaccination approved in Bahrain includes AstraZeneca, Pfizer, Sinopharm and Sputnik [Check out the Ministry of Health of Bahrain](https://healthalert.gov.bh/en/category/vaccine). However, if you search "Bahrain vaccination" in google, you will see many news and scientific reports made by Bahrain and other countries, discussing about the ineffectiveness of Sinopharm, and people had to get booster shots as in getting a third shot, using a different vaccination by Pfizer Inc. and BioNTech SE, which most people only have to take 2 shots per person (Stephen, 2021). [News resourse](https://www.wsj.com/articles/sinopharm-covid-vaccine-seen-as-less-effective-in-bahrain-study-11630150885) 
 
 
 ```{r}
@@ -126,9 +137,9 @@ bah %>%
 
 
 
-From the table and the plot above, it is obvious to see that cases in Bahrain has decreased a lot after July, and it has lasted for more than a month. To conclude, we can say that the Covid-19 situation is under control in Bahrain.
+From the table and the plot, it is obvious to see that cases in Bahrain has decreased a lot after July, and the decline has lasted for more than a month. To conclude, we can say that the Covid-19 situation is under control in Bahrain.
 
-Bahrain has always been a special place to me. After writng this post, I just made up my mind to go back to Bahrain again when the Covid-19 is over. Having a such good vaccination example as Bahrain, I believe this day will come soon!
+Bahrain has always been a special place to me. Just a fun fact that it even has the second large currency in the world which 1 Bahraini Dinar equals 2.65 USD! Also, after writing this post, I just made up my mind to go back to Bahrain again when the Covid-19 is over. Having a such good vaccination example as Bahrain, I believe this day will come soon!
 
 
 ## References
@@ -154,3 +165,6 @@ The official website for the latest health developments, Kingdom of Bahrain. Hea
 Wickham et al., (2019). Welcome to the tidyverse. Journal of Open Source Software, 4(43), 1686, https://doi.org/10.21105/joss.01686
 
 Yihui Xie (2021). knitr: A General-Purpose Package for Dynamic Report Generation in R. R package version 1.33.
+
+Yihui Xie, Joe Cheng and Xianying Tan (2021). DT: A Wrapper of the JavaScript Library 'DataTables'. R package version 0.18. https://CRAN.R-project.org/package=DT
+
