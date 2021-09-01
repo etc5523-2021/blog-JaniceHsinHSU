@@ -9,6 +9,8 @@ navbar:
       href: index.html
     - text: "About"
       href: about.html
-output: 
+output:
   distill::distill_article:
+    include:
+      after_body: footer.html
     css: styles.css

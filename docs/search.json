@@ -6,14 +6,14 @@
       "description": "Some additional details about the blog",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2021-09-01T15:43:44+08:00"
+      "last_modified": "2021-09-01T15:58:52+08:00"
     },
     {
       "path": "index.html",
       "title": "Janice's Articles",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2021-09-01T15:43:44+08:00"
+      "last_modified": "2021-09-01T16:04:03+08:00"
     }
   ],
   "collections": ["posts/posts.json"]
