@@ -1,0 +1,125 @@
+---
+title: "The Collision of Covid and Conflicts"
+description: |
+  What is more life threathening, Covid or Taliban?
+author:
+  - name: Janice Hsin Hsu
+    
+date: 09-14-2021
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+library(ggplot2)
+library(gridExtra)
+library(grid)
+library(lubridate)
+library(kableExtra)
+library(knitr)
+library(DT)
+```
+
+
+When it rains, it pours. I would say this idiom can describe Afganisthan's situation right on point. 
+I am writing this post about Covid-19 based on an assignment. This should have not been a hard task. Yet the more I write the more grief grows. However, this is an even more heart-breaking and unfortunate for the fate of the people of Afghanistan. Not only are they suffering from COVID, they also have put up a fight against the Taliban. My heart goes to the people in Afganaistan.
+
+
+```{r}
+knitr::include_graphics("images/no_mask.webp")
+```
+Biden ordered troops to evacuate about 640 Afghans to Qatar from the capital, Kabul, in late August. Obviously, their lives were at risk, and time was so short that the essential protection of COVID by wearing face masks were impossible.
+
+## The Covid-19 situation in Afganiastan
+
+```{r}
+data <- read_csv("time_series_covid19_confirmed_global.csv") 
+data_tidy <- data %>%
+  pivot_longer(cols = `1/22/20`:`9/13/21`, names_to = "dates",
+               values_to = "cases") %>%
+  mutate(dates = mdy(dates)) %>% 
+  mutate_at(vars(dates), funs(year, month, day)) 
+
+afg <- data_tidy %>%
+  filter(`Country/Region` == "Afghanistan")
+```
+
+
+```{r}
+data_tidy <- data_tidy %>%
+  mutate(case_yesterday = lag(cases, n = 1),
+        daily_increase = cases - case_yesterday )
+afg <- afg %>%
+  mutate(case_yesterday = lag(cases, n = 1),
+        daily_increase = cases - case_yesterday )
+```
+
+
+
+```{r}
+afg %>%
+ggplot(aes(x = dates, y = daily_increase))+
+  geom_col(col = "#138D75")+
+  labs(title = "Confirmed Cases in Afganaistan",
+    x = "Dates", 
+       y = "Daily Increase")+
+  theme(text = element_text(color = "white"),
+        rect = element_rect(fill = "black"),
+        panel.background = element_rect(fill = "black"),
+        axis.text = element_text(color = "white"))
+```
+The confirmed cases in Afganiastan is reaching a peak high as shown above during July. According to multiple news reports,the reasons are, the most serious drought happened during 2021 in June, NGOs and health organizations are evacuating out of Afganiastan due to the takeover of the Taliban. Therefore, the people fled the country in a rush, and with the scarcity of natural resources and good health environment. People couldn't care more about wearing face masks during the flee. Therefore, leading to the rising numbers of COVID infections. 
+
+```{r}
+death <- read_csv("time_series_covid19_deaths_global.csv") 
+death_tidy <- death %>%
+  pivot_longer(cols = `1/22/20`:`9/13/21`, names_to = "dates",
+               values_to = "cases") %>%
+  mutate(dates = mdy(dates)) %>% 
+  mutate_at(vars(dates), funs(year, month, day)) 
+
+death_tidy <- death_tidy %>%
+  mutate(case_yesterday = lag(cases, n = 1),
+        daily_increase = cases - case_yesterday )
+
+afg_death <- death_tidy %>%
+  filter(`Country/Region` == "Afghanistan")
+
+
+afg_death <- afg_death %>%
+  mutate(case_yesterday = lag(cases, n = 1),
+        daily_increase = cases - case_yesterday )
+```
+
+```{r}
+afg_death %>%
+ggplot(aes(x = dates, y = daily_increase))+
+  geom_col(col = "#138D75")+
+  labs(title = "Death Cases in Afganaistan",
+    x = "Dates", 
+       y = "Daily Increase") +
+  theme(text = element_text(color = "white"),
+        rect = element_rect(fill = "black"),
+        panel.background = element_rect(fill = "black"),
+        axis.text = element_text(color = "white"))
+```
+
+
+
+
+
+
+
+
+The death cases in Afganiastan is relatively low comparing to the infection cases, which is highly suspicious and rare. As I mentioned above that health kits and face masks are scarce, I decided to do a deeper search on the death cases, and to my surprise, health officials are being gunned down and also faced life threats because of the Taliban. I would suggest that, this is the reason that lies behind the low death rate, because the government is not running the country, and so the numbers reported above is way lower than the actual death rate. Even though the WHO promised to stay and help out with essentials of COVID supplies. The truth is, it's still not enough to save Afghans' lives. 
+
+
+
+
+
+
+
