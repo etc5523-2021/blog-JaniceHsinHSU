@@ -128,7 +128,7 @@ ggplot(aes(x = dates, y = daily_increase))+
 The death cases in Afganiastan is relatively low comparing to the infection cases, which is highly suspicious and rare. As I mentioned above that health kits and face masks are scarce, I decided to do a deeper search on the death cases, and to my surprise, health officials are being gunned down and also faced life threats because of the Taliban. I would suggest that, this is the reason that lies behind the low death rate, because the government is not running the country, and so the numbers reported above is way lower than the actual death rate. Even though the WHO promised to stay and help out with essentials of COVID supplies. The truth is, it's still not enough to save Afghans' lives. 
 
 
-I first mentioned that this is an assignment about Covid. However, I cannot ignore the fact that Afghans' lives are in significant danger because of Taliban.
+I first mentioned that this is an assignment about Covid. However, I cannot ignore the fact that Afghans' lives are in significant danger because of Taliban, and I will feel extremely guilty if all I follow is the instruction of the assignment, instead of conveying the story for Afghans.
 
 
 
