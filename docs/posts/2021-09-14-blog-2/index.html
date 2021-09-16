@@ -117,7 +117,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["afghanistan_conflict_displacements_2021.csv","blog-2_files/anchor-4.2.2/anchor.min.js","blog-2_files/bowser-1.9.3/bowser.min.js","blog-2_files/distill-2.2.21/template.v2.js","blog-2_files/figure-html5/unnamed-chunk-3-1.png","blog-2_files/figure-html5/unnamed-chunk-4-1.png","blog-2_files/figure-html5/unnamed-chunk-5-1.png","blog-2_files/figure-html5/unnamed-chunk-6-1.png","blog-2_files/header-attrs-2.9/header-attrs.js","blog-2_files/jquery-1.11.3/jquery.min.js","blog-2_files/popper-2.6.0/popper.min.js","blog-2_files/tippy-6.2.7/tippy-bundle.umd.min.js","blog-2_files/tippy-6.2.7/tippy-light-border.css","blog-2_files/tippy-6.2.7/tippy.css","blog-2_files/tippy-6.2.7/tippy.umd.min.js","blog-2_files/webcomponents-2.0.0/webcomponents.js","images/mask.jpeg","images/no_mask.webp","time_series_covid19_confirmed_global.csv","time_series_covid19_deaths_global.csv"]}
+  {"type":"character","attributes":{},"value":["afghanistan_conflict_displacements_2021.csv","blog-2_files/anchor-4.2.2/anchor.min.js","blog-2_files/bowser-1.9.3/bowser.min.js","blog-2_files/distill-2.2.21/template.v2.js","blog-2_files/figure-html5/unnamed-chunk-3-1.png","blog-2_files/figure-html5/unnamed-chunk-4-1.png","blog-2_files/figure-html5/unnamed-chunk-5-1.png","blog-2_files/figure-html5/unnamed-chunk-6-1.png","blog-2_files/figure-html5/unnamed-chunk-9-1.png","blog-2_files/header-attrs-2.9/header-attrs.js","blog-2_files/jquery-1.11.3/jquery.min.js","blog-2_files/popper-2.6.0/popper.min.js","blog-2_files/tippy-6.2.7/tippy-bundle.umd.min.js","blog-2_files/tippy-6.2.7/tippy-light-border.css","blog-2_files/tippy-6.2.7/tippy.css","blog-2_files/tippy-6.2.7/tippy.umd.min.js","blog-2_files/webcomponents-2.0.0/webcomponents.js","images/mask.jpeg","images/no_mask.webp","images/Picture_1.png","time_series_covid19_confirmed_global.csv","time_series_covid19_deaths_global.csv"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2058,7 +2058,7 @@ body {background-color: #E3E2DF;
 
  .distill-site-nav  {
   color: #FFFFFF;
-  background-color: #5D001E;
+  background-color: #608AA9;
   font-family:"Monospace", cursive, Sans-Serif ;
    }
 
@@ -2067,7 +2067,7 @@ body {background-color: #E3E2DF;
   --text-color:       #FFFFFF;                   
   --text-size:        20px;                      
   --hover-color:      #383838;                   
-  --bkgd-color:       #D36060;          
+  --bkgd-color:       #4C606F;          
 }
 
 h1 {
@@ -2140,7 +2140,7 @@ th, td {
 <p>“As the situation in Afghanistan continues to deteriorate rapidly, WHO is extremely concerned over the unfolding safety and humanitarian needs in the country, including risk of disease outbreaks and rise in COVID-19 transmission,” said a 17 August WHO update. (Henderson &amp; Sc., 2021)</p>
 <h2 id="the-covid-19-situation-in-afganistan">The Covid-19 situation in Afganistan</h2>
 <p>Again, I use the data from John Hopkins University. However, I am highly doubtful for the numbers that I have. Of course I trust John Hopkins, the source is reliable. What I am doubting at, is the collection of the data. When I search “Covid in Afghanistan”, most of the news I see is how experts worry about the spread of Covid or the lack of health care in Afghanistan. However, for people who actually live in Afghanistan, might not know which one they should fear more, Covid or Taliban?</p>
-<p>We all know that Covid is the enemy for the entire world. However, in Afghanistan, people who fight with Covid and provide aids for patients were harmed or died because of Taliban." the Taliban continued abducting healthcare workers and attacked a pharmacy; the Afghan national security forces carried out deliberate acts of violence and intimidation affecting a healthcare facility, workers and the delivery of medical supplies; and unknown gunmen perpetrated an abhorrent attack on a maternity ward in a hospital in Kabul, resulting in dozens of civilian casualties.(SPECIAL REPORT: ATTACKS ON HEALTHCARE DURING THE COVID-19 PANDEMIC, 2021)"</p>
+<p>We all know that Covid is the enemy for the entire world. However, in Afghanistan, people who fight with Covid and provide aids for patients were harmed or dead because of the Taliban." the Taliban continued abducting healthcare workers and attacked a pharmacy; the Afghan national security forces carried out deliberate acts of violence and intimidation affecting a healthcare facility, workers and the delivery of medical supplies; and unknown gunmen perpetrated an abhorrent attack on a maternity ward in a hospital in Kabul, resulting in dozens of civilian casualties.(SPECIAL REPORT: ATTACKS ON HEALTHCARE DURING THE COVID-19 PANDEMIC, 2021)"</p>
 <h2 id="data-decription">Data decription</h2>
 <p>The data is retrieved from <a href="https://github.com/CSSEGISandData/COVID-19">COVID-19 Data Repository by the Center for Systems Science and Engineering (CSSE) at Johns Hopkins University</a> which is collected by Johns Hopkins University.</p>
 <p>The dataset in this post contains the number of confirmed cases of coronavirus from 22nd of January in 2020 to 13st of September in 2021. I transferred the data into a long format, so that the dates can be shown in a single column. The dataset also includes variables such as Province, Country/Region and latitude as in lat, longitude as in long.</p>
@@ -2164,14 +2164,38 @@ th, td {
 <p><img src="blog-2_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
 </div>
 <p>The death cases in Afganiastan is relatively low comparing to the infection cases, which is highly suspicious and rare. As I mentioned above that health kits and face masks are scarce, I decided to do a deeper search on the death cases, and to my surprise, health officials are being gunned down and also faced life threats because of the Taliban. I would suggest that, this is the reason that lies behind the low death rate, because the government is not running the country, and so the numbers reported above is way lower than the actual death rate. Even though the WHO promised to stay and help out with essentials of COVID supplies. The truth is, it’s still not enough to save Afghans’ lives.</p>
+<h3 id="covid-precaution-in-afghanistan">Covid Precaution in Afghanistan</h3>
+<p>Taliban’s control of Afghanistan during the covid period was due to them wearing precautionary protective masks to fight against the globally spread virus. Well, that’s what many people believe and to support this argument a CNN news headline screenshot has been shared widely in social media.</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="images/Picture_1.png" width="408" /></p>
+</div>
+<p>In this section we are not going to discuss the validity of this picture. We are going to analyse the current Covid precautionary activities that are done in Afghanistan. The World Health Organization (WHO) is ready to send their medical supplies and assistance to the country, however this is rejected by the now ruling Taliban with violent attacks.</p>
+<p>One good prevention method (till date) is the intake of vaccine. That is a disturbing fact for Afghanistan. Taliban banned the use of Covid vaccines in some regions of the country (Shamshad News, 2021). This is the only inside news I could find so situation of other regions is still in dark. Taliban had previously banned polio vaccines in the regions they used to control so the current situation was predictable. There are accurate data for the current vaccinated numbers. But the U.N. reports in August 2021 that several 2 million vaccines were administrated in a country having 40 million as its population (Full Fact, 2021).</p>
+<p>There are reports of drastic decrease in the number of vaccine intake. However, the validity of such reports is questionable as they are not from inside sources. The residents of the country also do not follow the protocol of wearing a mask and keeping safe social distance. According to WHO, they have many other issues that they must face like diarrhea, malnutrition, high blood pressure, COVID-19-like symptoms and reproductive health complications (SciDev, 2021). Can you blame them? No! Each day for them is a fight for survival of the strongest.</p>
 <h3 id="displacements-caused-by-conflicts">Displacements caused by conflicts</h3>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="blog-2_files/figure-html5/unnamed-chunk-9-1.png" width="624" /></p>
+</div>
+<p>This is the amount of displacement in 2021, some data might not be fully recorded because of the current serious conflicts in Afghanistan. This is not only a disaster for each individual or family, the displacement can potentially cause the outburst of Covid because the spread or human movement cannot be under control anymore.</p>
 <h2 id="references">References</h2>
+<p>Afghanistan - Conflict Induced Displacements in 2021 - Humanitarian Data Exchange. (2021). Retrieved 16 September 2021, from <a href="https://data.humdata.org/dataset/afghanistan-conflict-induced-displacements-in-2021" class="uri">https://data.humdata.org/dataset/afghanistan-conflict-induced-displacements-in-2021</a></p>
+<p>Baptiste Auguie (2017). gridExtra: Miscellaneous Functions for “Grid” Graphics. R package version 2.3. <a href="https://CRAN.R-project.org/package=gridExtra" class="uri">https://CRAN.R-project.org/package=gridExtra</a></p>
+<p>Garrett Grolemund, Hadley Wickham (2011). Dates and Times Made Easy with lubridate. Journal of Statistical Software, 40(3), 1-25. URL <a href="https://www.jstatsoft.org/v40/i03/" class="uri">https://www.jstatsoft.org/v40/i03/</a>.</p>
+<p>GitHub - CSSEGISandData/COVID-19: Novel Coronavirus (COVID-19) Cases, provided by JHU CSSE. GitHub. (2021). Retrieved 13 September 2021, from <a href="https://github.com/CSSEGISandData/COVID-19" class="uri">https://github.com/CSSEGISandData/COVID-19</a>.</p>
+<p>Full Fact. (2021). What we know about the Taliban and Covid-19. Retrieved from Full Fact Online: <a href="https://fullfact.org/online/taliban-no-vaccines/" class="uri">https://fullfact.org/online/taliban-no-vaccines/</a></p>
+<p>H. Wickham. ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York, 2016.</p>
+<p>Hao Zhu (2021). kableExtra: Construct Complex Table with ‘kable’ and Pipe Syntax. R package version 1.3.4. <a href="https://CRAN.R-project.org/package=kableExtra" class="uri">https://CRAN.R-project.org/package=kableExtra</a></p>
 <p>Henderson, E., &amp; Sc., B. (2021). Experts fear rapid spread of COVID-19 in Afghanistan given Taliban’s hostility to vaccinations. Retrieved 15 September 2021, from <a href="https://www.news-medical.net/news/20210820/Experts-fear-rapid-spread-of-COVID-19-in-Afghanistan-given-Talibans-hostility-to-vaccinations.aspx" class="uri">https://www.news-medical.net/news/20210820/Experts-fear-rapid-spread-of-COVID-19-in-Afghanistan-given-Talibans-hostility-to-vaccinations.aspx</a></p>
+<p>R Core Team (2021). R: A language and environment for statistical computing. R Foundation for Statistical Computing, Vienna, Austria. URL <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a>.</p>
+<p>SciDev. (2021). Taliban ban on jabs may trigger COVID-19 spike. Retrieved from SciDev Net: <a href="https://www.scidev.net/global/news/taliban-ban-on-jabs-may-trigger-covid-19-spike/" class="uri">https://www.scidev.net/global/news/taliban-ban-on-jabs-may-trigger-covid-19-spike/</a></p>
+<p>Shamshad News. (2021). Taliban Banned Using of COVID-19 Vaccines in Paktia. Retrieved from Shamshad News Website: <a href="http://www.english.shamshadnews.com/index.php/afghanistan/77-news/1973-taliban-banned-using-of-covid-19-vaccines-in-paktia" class="uri">http://www.english.shamshadnews.com/index.php/afghanistan/77-news/1973-taliban-banned-using-of-covid-19-vaccines-in-paktia</a></p>
 <p>SPECIAL REPORT: ATTACKS ON HEALTHCARE DURING THE COVID-19 PANDEMIC. (2021). [Ebook] (p. 4). Retrieved from <a href="https://unama.unmissions.org/sites/default/files/unama_special_report_attacks_on_healthcare_during_the_covid-19_pandemic_20_june_2020.pdf" class="uri">https://unama.unmissions.org/sites/default/files/unama_special_report_attacks_on_healthcare_during_the_covid-19_pandemic_20_june_2020.pdf</a></p>
 <p>Taliban take-over: Afghanistan already battling drought, hunger, COVID-19. (2021). Retrieved 15 September 2021, from <a href="https://www.downtoearth.org.in/news/governance/taliban-take-over-afghanistan-already-battling-drought-hunger-covid-19-78475" class="uri">https://www.downtoearth.org.in/news/governance/taliban-take-over-afghanistan-already-battling-drought-hunger-covid-19-78475</a></p>
+<p>Wickham et al., (2019). Welcome to the tidyverse. Journal of Open Source Software, 4(43), 1686, <a href="https://doi.org/10.21105/joss.01686" class="uri">https://doi.org/10.21105/joss.01686</a></p>
+<p>Yihui Xie (2021). knitr: A General-Purpose Package for Dynamic Report Generation in R. R package version 1.33.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
